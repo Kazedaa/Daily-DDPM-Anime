@@ -11,11 +11,10 @@ configs = config["DEFAULT"]
 IMG_SIZE = int(configs["IMG_SIZE"])
 TIMESTEPS = int(configs["TIMESTEPS"])
 IMG_SHAPE = eval(configs["IMG_SHAPE"])
-DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 def get(element, t):
     ele = element.gather(-1, t)
-    return ele.reshape(-1, 1, 1, 1).to(DEVICE)
+    return ele.reshape(-1, 1, 1, 1)
 
 class SimpleDiffusion(nn.Module):
     def __init__(
@@ -45,10 +44,10 @@ class SimpleDiffusion(nn.Module):
         
     def forward(self, x0, timesteps ,var_type = 'fixed'):
         def get_mean(x0 , timesteps):
-            return get(self.sqrt_alpha_hat.to(DEVICE), t=timesteps.to(DEVICE)) * x0
+            return get(self.sqrt_alpha_hat), t=timesteps) * x0
         
         def get_std_dev(x0 , timesteps ,var_type):
-            return get(self.sqrt_one_minus_alpha_hat.to(DEVICE), t=timesteps.to(DEVICE))
+            return get(self.sqrt_one_minus_alpha_hat, t=timesteps)
             
         eps     = torch.randn_like(x0)  # Noise
         mean    = get_mean(x0 ,timesteps)  # Image scaled
@@ -61,10 +60,10 @@ class SimpleDiffusion(nn.Module):
 def get_sample(x , z ,sd , predicted_noise , ts):
     std_dev = get(sd.sqrt_one_minus_alpha_hat.to(DEVICE), t=ts.to(DEVICE))
     
-    sqrt_beta_t                = get(sd.sqrt_beta.to(DEVICE), ts)
-    beta_t                     = get(sd.beta.to(DEVICE), ts)
-    one_by_sqrt_alpha_t        = get(sd.one_by_sqrt_alpha.to(DEVICE), ts)
-    sqrt_one_minus_alpha_hat_t = get(sd.sqrt_one_minus_alpha_hat.to(DEVICE), ts) 
+    sqrt_beta_t                = get(sd.sqrt_beta, ts)
+    beta_t                     = get(sd.beta, ts)
+    one_by_sqrt_alpha_t        = get(sd.one_by_sqrt_alpha, ts)
+    sqrt_one_minus_alpha_hat_t = get(sd.sqrt_one_minus_alpha_hat, ts) 
 
     x = (
         one_by_sqrt_alpha_t
@@ -76,7 +75,7 @@ def get_sample(x , z ,sd , predicted_noise , ts):
 @torch.no_grad()
 def reverse_diffusion(model, sd ,path_to_save):
 
-    x = torch.randn((4, *IMG_SHAPE), device=DEVICE)
+    x = torch.randn((4, *IMG_SHAPE))
     model.eval()
 
     for time_step in tqdm(iterable=reversed(range(1, TIMESTEPS)), 
@@ -84,7 +83,7 @@ def reverse_diffusion(model, sd ,path_to_save):
                           desc="Sampling :: ", position=0):
         
 
-        ts = torch.ones(4, dtype=torch.long, device=DEVICE) * time_step
+        ts = torch.ones(4, dtype=torch.long) * time_step
         z = torch.randn_like(x) if time_step > 1 else torch.zeros_like(x)
 
         predicted_noise = model(x, ts)
