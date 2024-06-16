@@ -8,9 +8,9 @@ config = ConfigParser()
 config.read("Generator\config.cfg")
 configs = config["DEFAULT"]
 
-IMG_SIZE = int(configs["IMG_SIZE"])
-TIMESTEPS = int(configs["TIMESTEPS"])
-IMG_SHAPE = eval(configs["IMG_SHAPE"])
+IMG_SIZE = int(configs["img_size"])
+TIMESTEPS = int(configs["timesteps"])
+IMG_SHAPE = eval(configs["img_shape"])
 
 def get(element, t):
     ele = element.gather(-1, t)
