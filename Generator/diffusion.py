@@ -44,7 +44,7 @@ class SimpleDiffusion(nn.Module):
         
     def forward(self, x0, timesteps ,var_type = 'fixed'):
         def get_mean(x0 , timesteps):
-            return get(self.sqrt_alpha_hat), t=timesteps) * x0
+            return get(self.sqrt_alpha_hat, t=timesteps) * x0
         
         def get_std_dev(x0 , timesteps ,var_type):
             return get(self.sqrt_one_minus_alpha_hat, t=timesteps)
