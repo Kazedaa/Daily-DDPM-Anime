@@ -12,7 +12,6 @@ configs = config["DEFAULT"]
 IMG_SIZE = int(configs["IMG_SIZE"])
 TIMESTEPS = int(configs["TIMESTEPS"])
 IMG_SHAPE = eval(configs["IMG_SHAPE"])
-DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 BASE_CH = int(configs["BASE_CH"])
 BASE_CH_MULT = eval(configs["BASE_CH_MULT"])
@@ -30,14 +29,14 @@ model = UNet(
     apply_attention         = APPLY_ATTENTION,
     dropout_rate            = DROPOUT_RATE,
     time_multiple           = TIME_EMB_MULT,
-).to(DEVICE)
+)
 
 model.load_state_dict(torch.load(MODEL_PATH))
 
 sd = SimpleDiffusion(
     num_diffusion_timesteps = TIMESTEPS,
     img_shape               = IMG_SHAPE,
-).to(DEVICE)
+)
 
 
 def generate(path_to_save):
@@ -53,6 +52,3 @@ def generate(path_to_save):
     cv2.imwrite(path_to_save , image)
 
     return path_to_save
-
-if __name__ == "__main__":
-    path = generate("sample.png")
