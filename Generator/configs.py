@@ -14,5 +14,5 @@ config['DEFAULT'] = {
     "TIME_EMB_MULT" : 4
 }
 
-with open("Generator\config.ini" , "w") as file : 
+with open("Generator\config.cfg" , "w") as file : 
     config.write(file)
