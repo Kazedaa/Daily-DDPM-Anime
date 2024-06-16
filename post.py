@@ -7,6 +7,7 @@ ACCOUNT_PASSWORD = os.environ["SOME_SECRET"]
 
 cl = Client()
 cl.login(ACCOUNT_USERNAME, ACCOUNT_PASSWORD)
+print("Sign Successfull...")
 num_posts = 1
 
 for i in range(num_posts):
