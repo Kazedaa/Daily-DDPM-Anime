@@ -6,7 +6,7 @@ import cv2
 
 from configparser import ConfigParser
 config = ConfigParser()
-config.read("Generator\config.ini")
+config.read("Generator\config.cfg")
 configs = config["DEFAULT"]
 
 IMG_SIZE = int(configs["IMG_SIZE"])
