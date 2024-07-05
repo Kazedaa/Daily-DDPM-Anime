@@ -74,6 +74,8 @@ Our model is built using PyTorch and follows the standard DDPM architecture:
 ### Model Architecture
 
 - **U-Net Backbone:** A simple Unet with Alternating Residual and Attention Block along with Sinusoidal Positional Embedding.
+  ![image](https://github.com/Kazedaa/Daily-DDPM-Anime/assets/120291477/335e7ebb-a01e-4a8f-8383-5a86997b2d83)
+
 - **Noise Schedule:** Controls the amount of noise added at each time step during the forward process.
 - **Loss Function:** A combination of mean squared error (MSE) between the denoised output and the original image.
 
