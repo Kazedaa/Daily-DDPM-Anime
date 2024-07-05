@@ -83,5 +83,5 @@ Our model is built using PyTorch and follows the standard DDPM architecture:
 - **Loss Function:** A combination of mean squared error (MSE) between the denoised output and the original image.
 
 ### Resources
-- ![Paper : Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239)
-- ![Dataset : ](
+- [Paper : Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239)
+- [Dataset : Anime Face Dataset](https://www.kaggle.com/datasets/splcher/animefacedataset)
