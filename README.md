@@ -53,7 +53,7 @@ This repository contains the code for an Instagram AI bot that generates and pos
 1. **Generate and post an image:**
 
     ```bash
-    python post_image.py
+    python post.py
     ```
 
 2. **Schedule automatic posting:**
