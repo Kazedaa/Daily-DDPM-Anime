@@ -22,15 +22,15 @@ This repository contains the code for an Instagram AI bot that generates and pos
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/instagram-anime-ai-bot.git
-    cd instagram-anime-ai-bot
+    git clone https://github.com/Kazedaa/Daily-DDPM-Anime
+    cd Daily-DDPM-Anime
     ```
 
 2. **Create and activate a virtual environment:**
 
     ```bash
     python -m venv venv
-    source venv/bin/activate   # On Windows, use `venv\Scripts\activate`
+    source venv/bin/activate
     ```
 
 3. **Install the required dependencies:**
@@ -64,16 +64,16 @@ This repository contains the code for an Instagram AI bot that generates and pos
 
 ### Denoising Diffusion Probabilistic Model (DDPM)
 
-DDPMs are a class of generative models that use a diffusion process to generate high-quality images. The process involves gradually adding noise to training data and then learning to reverse this process to generate new data samples.
+DDPMs are generative models that use a diffusion process to generate high-quality images. The process involves gradually adding noise to training data and then learning to reverse this process to create new data samples.
 
 Our model is built using PyTorch and follows the standard DDPM architecture:
 
-1. **Forward Diffusion Process:** Adds Gaussian noise to the images over a series of time steps.
+1. **Forward Diffusion Process:** Adds Gaussian noise to the images over a series of timesteps.
 2. **Reverse Diffusion Process:** Trains a neural network to denoise the images, step by step, to generate new samples.
 
 ### Model Architecture
 
-- **U-Net Backbone:** A convolutional neural network (CNN) architecture that performs downsampling and upsampling of images.
+- **U-Net Backbone:** A simple Unet with Alternating Residual and Attention Block along with Sinusoidal Positional Embedding.
 - **Noise Schedule:** Controls the amount of noise added at each time step during the forward process.
 - **Loss Function:** A combination of mean squared error (MSE) between the denoised output and the original image.
 
