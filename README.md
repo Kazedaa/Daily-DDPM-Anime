@@ -1,5 +1,5 @@
-# Instagram Anime AI Bot
-
+# Daily DDPM Anime
+![DailyDDPMAnime](https://img.shields.io/badge/DailyDDPMAnime-v1.0-lightred)
 ## Overview
 
 This repository contains the code for an Instagram AI bot that generates and posts anime pictures. The bot utilizes a deep learning model, specifically a Denoising Diffusion Probabilistic Model (DDPM), implemented with PyTorch. The generated images are then automatically posted to Instagram.
