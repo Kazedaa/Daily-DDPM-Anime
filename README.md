@@ -1,8 +1,11 @@
 # Daily DDPM Anime
 ![DailyDDPMAnime](https://img.shields.io/badge/DailyDDPMAnime-v1.0-lightred)
-## Overview
 
-This repository contains the code for an Instagram AI bot that generates and posts anime pictures. The bot utilizes a deep learning model, specifically a Denoising Diffusion Probabilistic Model (DDPM), implemented with PyTorch. The generated images are then automatically posted to Instagram.
+This repository contains the code for an Instagram AI bot that generates and posts anime pictures. The bot utilizes a deep learning model, specifically a Denoising Diffusion Probabilistic Model (DDPM), implemented with PyTorch. The generated images are then automatically posted to [Instagram: Dailly Anime DDPM](https://www.instagram.com/daily.ddpm.anime/).
+
+![image](https://github.com/Kazedaa/Daily-DDPM-Anime/assets/120291477/b0d1fb90-dceb-4db8-9e57-29f30720f125) ![image](https://github.com/Kazedaa/Daily-DDPM-Anime/assets/120291477/4b11d751-8ad9-498b-8dcd-97438344e930)
+![image](https://github.com/Kazedaa/Daily-DDPM-Anime/assets/120291477/1e069377-0a89-4485-a728-78782699d126) ![image](https://github.com/Kazedaa/Daily-DDPM-Anime/assets/120291477/2e481b0d-8aa4-4603-b7c1-b795f00784b4)
+
 
 ## Features
 
@@ -79,3 +82,6 @@ Our model is built using PyTorch and follows the standard DDPM architecture:
 - **Noise Schedule:** Controls the amount of noise added at each time step during the forward process.
 - **Loss Function:** A combination of mean squared error (MSE) between the denoised output and the original image.
 
+### Resources
+- ![Paper : Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239)
+- ![Dataset : ](
