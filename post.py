@@ -2,8 +2,8 @@ from instagrapi import Client
 from Generator.generate import generate
 from datetime import datetime
 import os
-ACCOUNT_USERNAME = 'daily.ddpm.anime'
-ACCOUNT_PASSWORD = os.environ["SOME_SECRET"]
+ACCOUNT_USERNAME = os.environ["INSTAGRAM_USERNAME"]
+ACCOUNT_PASSWORD = os.environ["INSTAGRAM_PASSWORD"]
 
 cl = Client()
 cl.login(ACCOUNT_USERNAME, ACCOUNT_PASSWORD)
