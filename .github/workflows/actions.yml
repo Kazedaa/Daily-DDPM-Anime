@@ -1,8 +1,9 @@
 name: Post on Insta v.1
 
 on:
-  schedule:
-    - cron: '40 * * * *'  #'0 0 * * *' # At 00:00 everyday
+workflow_dispatch:
+  # schedule:
+  #   - cron: '40 * * * *'  #'0 0 * * *' # At 00:00 everyday
 
 jobs:
   build:
