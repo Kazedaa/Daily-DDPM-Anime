@@ -32,7 +32,8 @@ jobs:
           
       - name: execute py script
         env:
-          SOME_SECRET: ${{ secrets.SOME_SECRET }}
+          INSTAGRAM_USERNAME: daily.ddpm.anime
+          INSTAGRAM_PASSWORD: ${{ secrets.SOME_SECRET }}
         run: python post.py
           
       - name: commit files
