@@ -12,6 +12,11 @@ jobs:
 
       - name: checkout repo content
         uses: actions/checkout@v2 # checkout the repository content to GitHub runner
+        with:
+          lfs: true
+
+      - name: fetch from git LFS
+        run: git lfs fetch --all 
 
       - name: setup python
         uses: actions/setup-python@v4
