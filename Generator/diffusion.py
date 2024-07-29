@@ -1,7 +1,6 @@
 import os
 import torch
 from torchvision.utils import save_image , make_grid
-from tqdm import tqdm
 from torch import nn
 
 
@@ -82,10 +81,7 @@ def reverse_diffusion(model, sd ,path_to_save):
     x = torch.randn((4, *IMG_SHAPE))
     model.eval()
 
-    for time_step in tqdm(iterable=reversed(range(1, TIMESTEPS)), 
-                          total=TIMESTEPS-1, dynamic_ncols=False, 
-                          desc="Sampling :: ", position=0):
-        
+    for time_step in tqdm(range(1, TIMESTEPS)):
 
         ts = torch.ones(4, dtype=torch.long) * time_step
         z = torch.randn_like(x) if time_step > 1 else torch.zeros_like(x)
