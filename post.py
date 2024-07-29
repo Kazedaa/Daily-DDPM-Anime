@@ -6,6 +6,7 @@ ACCOUNT_USERNAME = "daily.ddpm.anime"
 ACCOUNT_PASSWORD = os.environ["INSTAGRAM_PASSWORD"]
 
 cl = Client()
+cl.set_proxy("http://94.23.204.27:3128")
 cl.login(ACCOUNT_USERNAME, ACCOUNT_PASSWORD)
 print("Sign Successfull...")
 num_posts = 1
