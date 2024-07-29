@@ -1,16 +1,20 @@
+import os
 import torch
 from torchvision.utils import save_image , make_grid
 from tqdm import tqdm
 from torch import nn
 
+
 from configparser import ConfigParser
 config = ConfigParser()
-config.read("Generator\config.cfg")
-configs = config["DEFAULT"]
+config.read(os.path.join("Generator","config.ini"))
 
-IMG_SIZE = int(configs["img_size"])
-TIMESTEPS = int(configs["timesteps"])
-IMG_SHAPE = eval(configs["img_shape"])
+DEVICE="cuda" if torch.cuda.is_available() else "cpu"
+print(f"Using {DEVICE}...")
+
+IMG_SIZE = int(config["DEFAULT"]["img_size"])
+TIMESTEPS = int(config["DEFAULT"]["timesteps"])
+IMG_SHAPE = eval(config["DEFAULT"]["img_shape"])
 
 def get(element, t):
     ele = element.gather(-1, t)

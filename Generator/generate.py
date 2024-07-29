@@ -1,3 +1,4 @@
+import os
 import torch
 from Generator.diffusion import SimpleDiffusion
 from Generator.unet import UNet
@@ -6,20 +7,21 @@ import cv2
 
 from configparser import ConfigParser
 config = ConfigParser()
-config.read("Generator\config.cfg")
-configs = config["DEFAULT"]
+config.read(os.path.join("Generator","config.ini"))
 
-IMG_SIZE = int(configs["img_size"])
-TIMESTEPS = int(configs["timesteps"])
-IMG_SHAPE = eval(configs["img_shape"])
+DEVICE="cuda" if torch.cuda.is_available() else "cpu"
 
-BASE_CH = int(configs["BASE_CH"])
-BASE_CH_MULT = eval(configs["BASE_CH_MULT"])
-APPLY_ATTENTION = eval(configs["APPLY_ATTENTION"])
-DROPOUT_RATE = float(configs["DROPOUT_RATE"])
-TIME_EMB_MULT = int(configs["TIME_EMB_MULT"])
+IMG_SIZE = int(config["DEFAULT"]["img_size"])
+TIMESTEPS = int(config["DEFAULT"]["timesteps"])
+IMG_SHAPE = eval(config["DEFAULT"]["img_shape"])
 
-MODEL_PATH = "Generator\ddpm_lin_model_110.pth"
+BASE_CH = int(config["DEFAULT"]["BASE_CH"])
+BASE_CH_MULT = eval(config["DEFAULT"]["BASE_CH_MULT"])
+APPLY_ATTENTION = eval(config["DEFAULT"]["APPLY_ATTENTION"])
+DROPOUT_RATE = float(config["DEFAULT"]["DROPOUT_RATE"])
+TIME_EMB_MULT = int(config["DEFAULT"]["TIME_EMB_MULT"])
+
+MODEL_PATH = os.path.join("Generator","ddpm_lin_model_110.pth")
 
 model = UNet(
     input_channels          = IMG_SHAPE[0],
@@ -31,7 +33,7 @@ model = UNet(
     time_multiple           = TIME_EMB_MULT,
 )
 
-model.load_state_dict(torch.load(MODEL_PATH))
+model.load_state_dict(torch.load(MODEL_PATH,map_location=torch.device(DEVICE)),)
 
 sd = SimpleDiffusion(
     num_diffusion_timesteps = TIMESTEPS,
