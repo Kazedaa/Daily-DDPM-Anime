@@ -17,8 +17,7 @@ This repository contains the code for an Instagram AI bot that generates and pos
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Denoising Diffusion Probabalistic Model(#deep-learning-model)
-- [Contributing](#contributing)
+- [Denoising Diffusion Probabilistic Model](#denoising-diffusion-praba)
 
 ## Installation
 
@@ -63,9 +62,8 @@ This repository contains the code for an Instagram AI bot that generates and pos
 
     Use a task scheduler (like cron jobs on Unix systems or Task Scheduler on Windows) to run the `post_image.py` script at your desired intervals.
 
-## Deep Learning Model
 
-### Denoising Diffusion Probabilistic Model (DDPM)
+## Denoising Diffusion Probabilistic Model (DDPM)
 
 DDPMs are generative models that use a diffusion process to generate high-quality images. The process involves gradually adding noise to training data and then learning to reverse this process to create new data samples.
 
@@ -81,5 +79,5 @@ Our model is built using PyTorch and follows the standard DDPM architecture:
 - **Loss Function:** A combination of mean squared error (MSE) between the denoised output and the original image.
 
 ### Resources
-- [Paper : Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239)
-- [Dataset : Anime Face Dataset](https://www.kaggle.com/datasets/splcher/animefacedataset)
+- [Paper: Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239)
+- [Dataset: Anime Face Dataset](https://www.kaggle.com/datasets/splcher/animefacedataset)
