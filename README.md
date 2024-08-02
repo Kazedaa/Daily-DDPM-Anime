@@ -32,8 +32,8 @@ This repository contains the code for an Instagram AI bot that generates and pos
 2. **Create and activate a virtual environment:**
 
     ```bash
-    python -m venv venv
-    source venv/bin/activate
+    conda create -n anime_ddpm python=3.10
+    conda activate anime_ddpm
     ```
 
 3. **Install the required dependencies:**
