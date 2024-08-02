@@ -81,3 +81,5 @@ Our model is built using PyTorch and follows the standard DDPM architecture:
 ### Resources
 - [Paper: Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239)
 - [Dataset: Anime Face Dataset](https://www.kaggle.com/datasets/splcher/animefacedataset)
+
+Note: The Instagram account is no longer active since Instagram banned the proxy. If you have any solutions please feel free to post an Issue or contact me (the Author).
