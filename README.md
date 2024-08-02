@@ -17,7 +17,7 @@ This repository contains the code for an Instagram AI bot that generates and pos
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Deep Learning Model](#deep-learning-model)
+- [Denoising Diffusion Probabalistic Model(#deep-learning-model)
 - [Contributing](#contributing)
 
 ## Installation
