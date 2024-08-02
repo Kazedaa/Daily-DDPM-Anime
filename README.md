@@ -17,7 +17,7 @@ This repository contains the code for an Instagram AI bot that generates and pos
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Denoising Diffusion Probabilistic Model](#denoising-diffusion-praba)
+- [Denoising Diffusion Probabilistic Model](#Denoising-Diffusion-Probabilistic-Model-(DDPM))
 
 ## Installation
 
