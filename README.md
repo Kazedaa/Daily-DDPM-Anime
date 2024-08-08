@@ -65,9 +65,9 @@ This repository contains the code for an Instagram AI bot that generates and pos
 
 ## Denoising Diffusion Probabilistic Model (DDPM)
 
-DDPMs are generative models that use a diffusion process to generate high-quality images. The process involves gradually adding noise to training data and then learning to reverse this process to create new data samples.
+DDPMs are generative models that use a diffusion process to generate high-quality images. The process involves gradually adding noise to training data and then learning to reverse this process to create new data samples. The model was trained on several Anime face images from the [Dataset: Anime Face Dataset](https://www.kaggle.com/datasets/splcher/animefacedataset).
 
-Our model is built using PyTorch and follows the standard DDPM architecture:
+The model is built using PyTorch and follows the standard DDPM architecture:
 
 1. **Forward Diffusion Process:** Adds Gaussian noise to the images over a series of timesteps.
 2. **Reverse Diffusion Process:** Trains a neural network to denoise the images, step by step, to generate new samples.
@@ -75,8 +75,8 @@ Our model is built using PyTorch and follows the standard DDPM architecture:
 ### Model Architecture
 
 - **U-Net Backbone:** A simple Unet with Alternating Residual and Attention Block along with Sinusoidal Positional Embedding.
-- **Noise Schedule:** Controls the amount of noise added at each time step during the forward process.
-- **Loss Function:** A combination of mean squared error (MSE) between the denoised output and the original image.
+- **Noise Schedule:** Controls the amount of noise added at each time step during the forward process a Linear Noise Schedule was used.
+- **Loss Function:** Mean Squared Error (MSE) between the denoised output and the original image.
 
 ### Resources
 - [Paper: Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239)
